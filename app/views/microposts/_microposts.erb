@@ -9,10 +9,16 @@
                 <div>
                     <p><%= micropost.content %></p>
                 </div>
-                <div>
+                <div class='row mx-auto'>
+                    <!--Micropost削除ボタン-->
                     <% if current_user == micropost.user %>
-                        <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+                        <%= link_to "Delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm mr-2' %>
                     <% end %>
+                    
+                    
+                    <!--お気に入り登録/解除ボタン-->
+                    <%= render 'likes/like_button.html.erb', micropost: micropost%>
+                    
                 </div>
             </div>
         </li>
